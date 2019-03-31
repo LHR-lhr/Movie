@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MvcMovie.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create New", "Create")
+
+<form action="@Url.Action("Index")" method="get" data-movies-ajax="true" data-movies-target="#movieslist">
+    <input type="search" name="searchString" data-movies-autocomplete="@Url.Action("AutoComplete")" id="auto" />
+    <input type="submit" name="sub" id="up" value="搜索" />
+</form>
+
+@Html.Partial("_Movies", Model)
